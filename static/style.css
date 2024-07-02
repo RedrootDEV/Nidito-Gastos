@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
+    color: #212529;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -16,6 +17,10 @@ body {
 table {
     width: 100%;
     margin-top: 20px;
+}
+
+.table-responsive {
+    overflow-x: auto;
 }
 
 .form-row {
@@ -56,7 +61,15 @@ table {
     color: #e0e0e0;
 }
 
-.dark-mode .table thead {
+.dark-mode .table {
+    color: #e0e0e0;
+}
+
+.dark-mode .table td, .dark-mode .table th {
+    color: #e0e0e0;
+}
+
+.dark-mode .thead-dark th {
     background-color: #333;
 }
 

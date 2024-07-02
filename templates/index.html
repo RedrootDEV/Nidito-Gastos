@@ -48,49 +48,51 @@
         </div>
         <button type="submit" class="btn btn-primary">Agregar</button>
       </form>
-      <table class="table table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th>Concepto</th>
-            <th>Monto</th>
-            <th>Pablo</th>
-            <th>Sabri</th>
-            <th>Nota</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for gasto in gastos %}
-          <tr>
-            <td>{{ gasto.concepto }}</td>
-            <td>{{ gasto.monto }}</td>
-            <td>{{ gasto.pablo }}</td>
-            <td>{{ gasto.sabri }}</td>
-            <td>{{ gasto.nota }}</td>
-            <td>
-              <a href="/edit/{{ gasto.id }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-              <form action="/delete/{{ gasto.id }}" method="post" style="display:inline;">
-                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><i class="fas fa-trash-alt"></i></button>
-              </form>
-            </td>
-          </tr>
-          {% endfor %}
-        </tbody>
-        <tfoot>
-          <tr>
-            <th>Total</th>
-            <th>{{ total_monto }}</th>
-            <th>{{ total_pablo }}</th>
-            <th>{{ total_sabri }}</th>
-            <th></th>
-            <th>
-              <form action="/delete_all" method="post" style="display:inline;">
-                <button type="submit" class="btn btn-danger" onclick="return confirmDeleteAll()">Eliminar Todo</button>
-              </form>
-            </th>
-          </tr>
-        </tfoot>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>Concepto</th>
+              <th>Monto</th>
+              <th>Pablo</th>
+              <th>Sabri</th>
+              <th>Nota</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for gasto in gastos %}
+            <tr>
+              <td>{{ gasto.concepto }}</td>
+              <td>{{ gasto.monto }}</td>
+              <td>{{ gasto.pablo }}</td>
+              <td>{{ gasto.sabri }}</td>
+              <td>{{ gasto.nota }}</td>
+              <td>
+                <a href="/edit/{{ gasto.id }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                <form action="/delete/{{ gasto.id }}" method="post" style="display:inline;">
+                  <button type="submit" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><i class="fas fa-trash-alt"></i></button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Total</th>
+              <th>{{ total_monto }}</th>
+              <th>{{ total_pablo }}</th>
+              <th>{{ total_sabri }}</th>
+              <th></th>
+              <th>
+                <form action="/delete_all" method="post" style="display:inline;">
+                  <button type="submit" class="btn btn-danger" onclick="return confirmDeleteAll()">Eliminar Todo</button>
+                </form>
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
       <button class="float-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
